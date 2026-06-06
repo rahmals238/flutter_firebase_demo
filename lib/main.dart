@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
-import 'auth_screen.dart'; // Import layar autentikasi
-import 'home_screen.dart'; // Akan kita buat nanti
+import 'auth_screen.dart'; 
+import 'welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (ctx, userSnapshot) {
           if (userSnapshot.hasData) {
-            return const HomeScreen(); // Pengguna sudah login
+            return const WelcomeScreen(); // Pengguna sudah login
           }
           return const AuthScreen(); // Pengguna belum login
         },
